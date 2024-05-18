@@ -166,7 +166,7 @@ static int __init kretprobe_init(void)
 	ret = register_kretprobe(&my_kretprobe);
 	if (ret < 0) {
 		pr_err("register_kretprobe failed, returned %d\n", ret);
-		return -1;
+		return -2;
 	}
 	pr_info("Planted return probe at %s: 0x%lx\n",
 			my_kretprobe.kp.symbol_name, (unsigned long) my_kretprobe.kp.addr);

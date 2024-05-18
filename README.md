@@ -2,6 +2,10 @@
 
 Utility that tracks nf_tables DROP verdicts (actually all that are not ACCEPT) through the different namespaces, and displays the ethernet adapter properties. The objective is to be able to identify what adapter drops/doesn't accept a packet, useful in a multi-adapter/multi-namespace environment.
 
+## Note
+
+The nf_tables module must be loaded for the kretprobe registration to succeed. Otherwise, it will fail with return code -2;
+
 ## Output
 
 The output can be grabbed via dmesg and will look something like this
