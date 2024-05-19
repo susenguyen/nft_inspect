@@ -140,10 +140,11 @@ static int ret_handler(struct kretprobe_instance *ri, struct pt_regs *regs)
 		}
 	}
 
-	pr_info("%s - devin=%s/%d, devout=%s/%d, saddr=0x%x, daddr=0x%x, proto=%d, "
+	pr_info("%s - devin=%s/%d, devout=%s/%d, saddr=0x%x, daddr=0x%x, proto=%s, "
 		"spt=0x%x, dpt=0x%x, verdict=0x%x\n", func_name, devin,
 					devidxin, devout, devidxout, saddr, daddr,
-					proto, src, dst, verdict);
+					proto == IPPROTO_TCP ? "tcp" : "udp",
+					src, dst, verdict);
 
 	return 0;
 }
